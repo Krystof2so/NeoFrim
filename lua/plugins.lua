@@ -13,6 +13,7 @@ return {
 	-- *************************
 	-- * APPARENCE - INTERFACE *
 	-- * thème : nordic        *
+	-- * démarrage : alpha     *
 	-- *************************
 
 	{
@@ -23,6 +24,15 @@ return {
 		config = function ()
 			require(config_plug .. "nordic")
 		end,
-	}
+	},
+
+	{
+	  'goolord/alpha-nvim',
+    event = "VimEnter", -- Se produit une fois que vim a fini d'être initiaisé
+	  config = function ()
+      require(config_plug .. "alpha")
+	  end,
+	},
 
 }
+

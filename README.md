@@ -37,11 +37,15 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 
 ### Plugins à installer :
 - Interface :
-    - lualine.nvim
+    - lualine.nvim (dépendances : nvim-tree & nvim-web-devicons)
+    - alpha
     - which-key
+    - tree-sitter
 
 - LSP + :
     - conform.nvim
+
+- debugger
 
 - Fonctionnalités :
     - screenkey

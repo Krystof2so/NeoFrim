@@ -14,3 +14,4 @@ local map = vim.keymap.set -- 'vim.keymap.set' = fonction qui permet de définir
 map("n", "<leader>L", ":Lazy<CR>", { desc = "Ouvrir Lazy" })
 map("n", "<leader>ls", ":Lazy sync<CR>", { desc = "Synchronisation Lazy" })
 map("n", "<leader>lu", ":Lazy update<CR>", { desc = "Mise à jour des plugins" })
+
