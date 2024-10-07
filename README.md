@@ -40,7 +40,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - lualine.nvim (dépendances : nvim-tree & nvim-web-devicons)
     - alpha
     - which-key
-    - tree-sitter
+    - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
 
 - LSP + :
     - conform.nvim

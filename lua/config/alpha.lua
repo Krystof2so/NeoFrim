@@ -43,16 +43,34 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
 	-- dashboard.button("raccourci bouton", "texte affiché", "commande exécutée")
 --  dashboard.button("<ESPACE> + ee", "📂 - Explorateur de fichiers", "<cmd>NvimTreeToggle<CR>"),
-	dashboard.button("lz", "💤 - Ouvrir Lazy.nvim", "<cmd>:Lazy<CR>"),
+	dashboard.button("<Space-z>", "💤 - Ouvrir Lazy.nvim", "<cmd>Lazy<CR>"),
 --	dashboard.button("ms", "🛠️ - Ouvrir Mason", "<cmd>:Mason<CR>"),
 --	dashboard.button("r", "🗃️ - Fichiers récemments ouverts (Telescope)", "<cmd>:Telescope oldfiles<CR>"),
-  dashboard.button("q", "👋 - Hasta luego NVim...", "<cmd>:qa<CR>"),
+  dashboard.button("<Alt-q>", "👋 - Hasta luego NVim...", "<cmd>qa<CR>"),
 
   -- Autres boutons possibles :
   --dashboard.button("[e]", "📝 - Nouveau fichier", "<cmd>ene<CR>"),
 
 }
 
+-- PIED DE PAGE :
+dashboard.section.footer.val = {
+  [[                                                                                           ]],
+	[[                                                                                           ]],
+	[[                      ───────────────────────────────────────────                          ]],
+  [[                        Une configutation en français de Neovim                            ]],
+	[[                                                                                           ]]
+}
+
+-- RACCOURCIS CLAVIERS :
+-- Fonction pour définir les raccourcis clavier
+local function keymap_alpha(mode, sequence, commande, options)
+  vim.api.nvim_set_keymap(mode, sequence, commande, options)
+end
+
+-- '<A' = 'Alt'
+keymap_alpha('n', '<A-q>', ':qa<CR>', { noremap = true })
+keymap_alpha('n', '<leader>z', ':Lazy<CR>', { noremap = true })
 
 -- ************************ 
 alpha.setup(dashboard.opts) -- Initialisation de la configuration
