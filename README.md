@@ -32,7 +32,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 - Interface :
     - **OK** - nordic
     - **OK** - nvim-tree ==> Documentation
-    - lualine.nvim 
+    - **OK** - lualine.nvim ==> Documentation 
     - OK - alpha 
     - which-key
     - zen-mode
