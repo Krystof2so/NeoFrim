@@ -33,10 +33,10 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - **OK** - nordic
     - **OK** - nvim-tree ==> Documentation
     - **OK** - lualine.nvim ==> Documentation 
-    - OK - alpha 
+    - **OK** - alpha ==> Cf. configurations
     - which-key
     - zen-mode
-    - bufferline
+    - **OK** - bufferline ==> Documentation
 
 - Fonctionnalités :
     - nvim-toggler
