@@ -3,6 +3,7 @@
 -- **************************************
 
 vim.g.mapleader = " "  -- touche <Espace> comme touche 'leader'
+vim.opt.termguicolors = true -- Activer les couleurs 24-bit
 
 
 require "options" -- Configuration des options

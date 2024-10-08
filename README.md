@@ -21,31 +21,57 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 
 --- 
 
-## Organisation des fichiers :
-```markdown
-~/.config/nvim/
-    |_ init.lua
-    |_ lua/
-        |_ options.lua
-        |_ keymaps.lua
-        |_ plugins.lua
-        |_ config/
-        |    |_ lazy.lua
-        |    |_ nordic.lua
-        |_ snippets/
-```
+### A réaliser/finaliser :
+
+- Ajouter des options
+- Ajouter des raccourcis clavier
+- cheatsheet
 
 ### Plugins à installer :
+
 - Interface :
-    - lualine.nvim (dépendances : nvim-tree & nvim-web-devicons)
-    - alpha
+    - **OK** - nordic
+    - **OK** - nvim-tree ==> Documentation
+    - lualine.nvim 
+    - OK - alpha 
     - which-key
-    - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
-
-- LSP + :
-    - conform.nvim
-
-- debugger
+    - zen-mode
+    - bufferline
 
 - Fonctionnalités :
+    - nvim-toggler
+    - telescope
+    - trouble
+    - undotree
+    - nvim-surround
+    - substitute
+    - scroolbar
+    - neoscroll.nvim
+    - dressing
+    - autopairs
+
+- Git :
+    - gitsigns.nvim
+
+- LSP + :
+    - tree-sitter
+    - Mason
+    - lsp-config
+    - conform.nvim
+    - nvim-cmp
+    - luasnip
+    - formatting
+    - lspsaga
+    - lsp-signature
+    - toggle-lsp
+
+- debugger :
+    - dap-lua
+    - nvim.dap
+    - mason.dap
+    - nvim-dap-python
+    - telescope-dap-nvim
+    - venv-selesctor-nvim
+
+- Fonctionnalités supplémentaires :
     - screenkey

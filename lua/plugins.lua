@@ -10,11 +10,12 @@ local config_plug = "config."
 
 return {
 
-	-- *************************
-	-- * APPARENCE - INTERFACE *
-	-- * thème : nordic        *
-	-- * démarrage : alpha     *
-	-- *************************
+	-- **************************************
+	-- * APPARENCE - INTERFACE              *
+	-- * thème : nordic                     *
+	-- * démarrage : alpha                  *
+	-- * navigateur de fichiers : nvim-tree *
+	-- **************************************
 
 	{
 		'AlexvZyl/nordic.nvim',
@@ -32,6 +33,18 @@ return {
 	  config = function ()
       require(config_plug .. "alpha")
 	  end,
+	},
+
+	{
+		"nvim-tree/nvim-tree.lua",
+		event = "VimEnter",
+    version = "*",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+		config = function()
+      require(config_plug .. "nvim-tree")
+    end,
 	},
 
 }
