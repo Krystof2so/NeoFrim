@@ -40,7 +40,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 
 - Fonctionnalités :
     - nvim-toggler
-    - telescope
+    - **OK** telescope ==> Documentation
     - trouble
     - undotree
     - nvim-surround

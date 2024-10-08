@@ -63,5 +63,35 @@ return {
 		end,
 	},
 
+
+-- *******************
+-- * FONCTIONNALITES *
+-- * autopairs       *
+-- * Telescope       *
+-- *******************
+
+	{
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+		config = function()
+			require(config_plug .. "autopairs")
+	  end,
+	},
+
+	{
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require(config_plug .. "telescope")
+    end,
+  },
+
+
 }
 
