@@ -7,6 +7,8 @@
 -- ******************************************************************************
 
 local config_plug = "config."
+local lsp_plug = "config.lsp."
+
 
 return {
 
@@ -92,6 +94,18 @@ return {
     end,
   },
 
+
+-- ****************************
+-- * Language Server Protocol *
+-- * Mason                    *
+-- ****************************
+
+  {
+    "williamboman/mason.nvim",
+		config = function()
+			require(lsp_plug .. "mason")
+		end,
+  },
 
 }
 

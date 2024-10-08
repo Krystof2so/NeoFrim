@@ -48,14 +48,14 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - scroolbar
     - neoscroll.nvim
     - dressing
-    - autopairs
+    - **OK** - autopairs  ==> Documentation
 
 - Git :
     - gitsigns.nvim
 
 - LSP + :
     - tree-sitter
-    - Mason
+    - **OK** - Mason ==> Documentation
     - lsp-config
     - conform.nvim
     - nvim-cmp

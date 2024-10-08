@@ -57,10 +57,10 @@ end
 
 -- Boutons de l'interface :
 add_button("<Space-e>", "📂", "Explorateur de fichiers", "<cmd>NvimTreeOpen<CR>")
+add_button("<Space-r>", "🗃️", "Fichiers récemments ouverts", "<cmd>Telescope oldfiles<CR>")
 add_button("<Space-z>", "💤", "Ouvrir Lazy.nvim", "<cmd>Lazy<CR>")
+add_button("<Space-m>", "🛠️", "Ouvrir Mason", "<cmd>Mason<CR>")
 add_button("<Alt-q>", "👋", "Hasta luego NVim...", "<cmd>qa<CR>")
---	add_button("ms", "🛠️ - Ouvrir Mason", "<cmd>:Mason<CR>"),
-add_button("<Space-r>", "🗃️", "Fichiers récemments ouverts", "<cmd>:Telescope oldfiles<CR>")
 
 -- Fonction pour définir les raccourcis clavier :
 local function keymap_alpha(mode, sequence, command, options)
@@ -71,8 +71,8 @@ end
 keymap_alpha('n', '<A-q>', '<cmd>qa<CR>', { noremap = true })
 keymap_alpha('n', '<leader>z', '<cmd>Lazy<CR>', { noremap = true })
 keymap_alpha('n', '<leader>e', '<cmd>NvimTreeOpen<CR>', { noremap = true })
-keymap_alpha('n', '<leader>r', '<cmd>Telescope olffiles<CR>', { noremap = true })
-
+keymap_alpha('n', '<leader>r', '<cmd>Telescope oldfiles<CR>', { noremap = true })
+keymap_alpha('n', '<leader>m', '<cmd>Mason<CR>', { noremap = true })
 
 -- PIED DE PAGE :
 dashboard.section.footer.val = {
