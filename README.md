@@ -27,7 +27,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 - Ajouter des raccourcis clavier
 - cheatsheet
 
-### Plugins à installer :
+### Plugins à explorer/installer :
 
 - Interface :
     - **OK** - nordic
@@ -39,6 +39,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - **OK** - bufferline ==> Documentation
 
 - Fonctionnalités :
+    - neovim-session-manager
     - nvim-toggler
     - **OK** telescope ==> Documentation
     - trouble
@@ -52,6 +53,7 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 
 - Git :
     - gitsigns.nvim
+    - Neogit
 
 - LSP + :
     - tree-sitter
