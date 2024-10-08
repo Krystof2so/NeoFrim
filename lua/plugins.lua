@@ -72,7 +72,7 @@ return {
 -- * Telescope       *
 -- *******************
 
-	{
+	{ -- autopairs : fermeture automatique des pairs
     'windwp/nvim-autopairs',
     event = "InsertEnter",
 		config = function()

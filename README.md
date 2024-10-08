@@ -30,10 +30,10 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 ### Plugins à explorer/installer :
 
 - Interface :
-    - **OK** - nordic
+    - **OK** - nordic  ==> Configurations
     - **OK** - nvim-tree ==> Documentation
     - **OK** - lualine.nvim ==> Documentation 
-    - **OK** - alpha ==> Cf. configurations
+    - **OK - alpha** *Complet*
     - which-key
     - zen-mode
     - **OK** - bufferline ==> Documentation
@@ -56,12 +56,17 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - Neogit
 
 - LSP + :
-    - tree-sitter
+    - *1. tree-sitter* : Analyse syntaxique, coloration syntaxique améliorée, pliage de code
     - **OK** - Mason ==> Documentation
-    - lsp-config
+    - 2. lsp-config
     - conform.nvim
-    - nvim-cmp
-    - luasnip
+    - 3. nvim-cmp : autocomplétion
+    - 4. cmp-nvim-lsp
+    - 5. cmp-buffer
+    - 6. cmp-path
+    - 7. cmp-cmdline
+    - 8. cmp-luasnip
+    - 9. luasnip
     - formatting
     - lspsaga
     - lsp-signature
@@ -69,11 +74,11 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 
 - debugger :
     - dap-lua
-    - nvim.dap
+    - 10. nvim.dap
     - mason.dap
-    - nvim-dap-python
+    - 11. nvim-dap-python
     - telescope-dap-nvim
     - venv-selesctor-nvim
 
 - Fonctionnalités supplémentaires :
-    - screenkey
+    - screenkey 
