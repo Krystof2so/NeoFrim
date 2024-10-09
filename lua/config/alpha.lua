@@ -9,6 +9,7 @@
 -- IMPORT DES MODULES :
 local alpha = require "alpha" -- Module principal
 local dashboard = require "alpha.themes.dashboard" -- Thème fourni par alpha
+local alpha_utils = require "config.alpha_utils" -- Import du fichier de configuration des utilitaires alpha
 
 
 -- SECTION D'EN-TETE :
@@ -35,12 +36,9 @@ dashboard.section.header.val = {
 [[ │                                                                                         │ ]],
 [[ ╚─────────────────────────────────────────────────────────────────────────────────────────╝ ]],
 [[                                                                                             ]],
-[[                                                                                             ]],
-[[                                                                                             ]],
   "                      ".. date_format .. "                       ⏰ " .. os.date("%H:%M"),
 [[                                                                                             ]],
-[[                                                                                             ]], 
-                                                                                
+
 }
 
 
@@ -55,12 +53,14 @@ local function add_button(shortcut, icon, text, command)
   dashboard.section.buttons.val[#dashboard.section.buttons.val + 1] = dashboard.button(shortcut, icon .. " - " .. text, command)
 end
 
+
 -- Boutons de l'interface :
-add_button("<Space-e>", "📂", "Explorateur de fichiers", "<cmd>NvimTreeOpen<CR>")
-add_button("<Space-r>", "🗃️", "Fichiers récemments ouverts", "<cmd>Telescope oldfiles<CR>")
-add_button("<Space-f>", "📜", "Rechercher fichier", "<cmd>Telescope find_files <CR>")
-add_button("<Space-z>", "💤", "Ouvrir Lazy", "<cmd>Lazy<CR>")
-add_button("<Space-m>", "🛠️", "Ouvrir Mason", "<cmd>Mason<CR>")
+add_button("<Espace-e>", "📂", "Explorateur de fichiers", "<cmd>NvimTreeOpen<CR>")
+add_button("<Espace-p>", "📁", "Sélectionner un projet", "<cmd>lua require('config.alpha_utils').open_project()<CR>")
+add_button("<Espace-r>", "🗃️", "Fichiers récemments ouverts", '<cmd>Telescope oldfiles<CR>')
+add_button("<Espace-f>", "📜", "Rechercher fichier", "<cmd>Telescope find_files <CR>")
+add_button("<Espace-z>", "💤", "Ouvrir Lazy", "<cmd>Lazy<CR>")
+add_button("<Espace-m>", "🛠️", "Ouvrir Mason", "<cmd>Mason<CR>")
 add_button("<Alt-q>", "👋", "Hasta luego NeoFRim...", "<cmd>qa<CR>")
 
 -- Fonction pour définir les raccourcis clavier :
@@ -75,10 +75,11 @@ keymap_alpha('n', '<leader>e', '<cmd>NvimTreeOpen<CR>', { noremap = true })
 keymap_alpha('n', '<leader>r', '<cmd>Telescope oldfiles<CR>', { noremap = true })
 keymap_alpha('n', '<leader>m', '<cmd>Mason<CR>', { noremap = true })
 keymap_alpha('n', '<leader>f', '<cmd>Telescope find_files<CR>', { noremap = true })
+keymap_alpha('n', '<leader>p', '<cmd>lua require("config.alpha_utils").open_project()<CR>', { noremap = true })
+
 
 -- PIED DE PAGE :
 dashboard.section.footer.val = {
-  [[                                                                                           ]],
   [[                                                                                           ]],
   [[                      ───────────────────────────────────────────                          ]],
   [[                        Une configutation en français de Neovim                            ]],
