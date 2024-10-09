@@ -99,7 +99,9 @@ return {
 -- * Language Server Protocol et assistance codage *
 -- *-----------------------------------------------* 
 -- * Mason                                         *
+-- * mason-lspconfig                               *
 -- * treesitter : Analyse et manipulation du code  *
+-- * lspconfig                                     *
 -- *************************************************
 
   {
@@ -110,10 +112,24 @@ return {
   },
 
 	{
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require(lsp_plug .. "mason-lspconfig")
+    end,
+  },
+
+	{
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
       require(config_plug .. "treesitter")
+    end,
+  },
+
+	{
+    "neovim/nvim-lspconfig",
+    config = function()
+      require(config_plug .. "lsp.servers")
     end,
   },
 

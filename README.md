@@ -58,7 +58,8 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
 - LSP + :
     - **OK** - tree-sitter : ==> Documentation
     - **OK** - Mason ==> Documentation
-    - 2. lsp-config
+    - **OK** - lsp-config ==> Documentation
+    - **OK** - mason-lspconfig ==> Documentation
     - conform.nvim
     - 3. nvim-cmp : autocomplétion
     - 4. cmp-nvim-lsp
