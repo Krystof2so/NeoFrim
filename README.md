@@ -49,14 +49,14 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - scroolbar
     - neoscroll.nvim
     - dressing
-    - **OK** - autopairs  ==> Documentation
+    - **OK** - autopairs ==> Configurations
 
 - Git :
     - gitsigns.nvim
     - Neogit
 
 - LSP + :
-    - *1. tree-sitter* : Analyse syntaxique, coloration syntaxique améliorée, pliage de code
+    - **OK** - tree-sitter : ==> Documentation
     - **OK** - Mason ==> Documentation
     - 2. lsp-config
     - conform.nvim

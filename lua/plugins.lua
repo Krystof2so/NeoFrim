@@ -95,16 +95,26 @@ return {
   },
 
 
--- ****************************
--- * Language Server Protocol *
--- * Mason                    *
--- ****************************
+-- *************************************************
+-- * Language Server Protocol et assistance codage *
+-- *-----------------------------------------------* 
+-- * Mason                                         *
+-- * treesitter : Analyse et manipulation du code  *
+-- *************************************************
 
   {
     "williamboman/mason.nvim",
 		config = function()
 			require(lsp_plug .. "mason")
 		end,
+  },
+
+	{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require(config_plug .. "treesitter")
+    end,
   },
 
 }
