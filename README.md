@@ -61,13 +61,13 @@ Une autre possibilité consiste à installer cette configuration de façon pas-�
     - **OK** - lsp-config ==> Documentation
     - **OK** - mason-lspconfig ==> Documentation
     - conform.nvim
-    - 3. nvim-cmp : autocomplétion
-    - 4. cmp-nvim-lsp
-    - 5. cmp-buffer
-    - 6. cmp-path
-    - 7. cmp-cmdline
-    - 8. cmp-luasnip
-    - 9. luasnip
+    - **OK** - nvim-cmp ==> Documentation
+    - **OK** - cmp-nvim-lsp ==> Documentation
+    - **OK** - cmp-buffer ==> Documentation
+    - **OK** - cmp-path ==> Documentation
+    - **OK** - cmp-cmdline ==> Documentation
+    - **OK** - cmp-luasnip ==> Documentation
+    - **OK** - luasnip ==> Documentation
     - formatting
     - lspsaga
     - lsp-signature
