@@ -2,6 +2,4 @@
 
 local mason = require "mason"
 
-mason.setup({
-	
-})
+mason.setup({})

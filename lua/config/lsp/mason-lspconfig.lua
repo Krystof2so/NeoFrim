@@ -4,15 +4,12 @@ local mason_lspconfig = require "mason-lspconfig"
 
 mason_lspconfig.setup({
   ensure_installed = {
-    "pyright",
-    "lua-language-server",
-    "css-lsp",
-    "emmet-ls",
-    "html-lsp",
-    "json-lsp",
-    "python-lsp-server",
-    "ruff-lsp",
-    "texlab",
+    "pyright",          -- Serveur LSP pour Python
+    "cssls",           -- Serveur LSP pour CSS
+    "emmet_ls",        -- Serveur LSP pour Emmet
+    "html",            -- Serveur LSP pour HTML
+    "jsonls",          -- Serveur LSP pour JSON
+    "texlab",          -- Serveur LSP pour LaTeX
   },
 })
 

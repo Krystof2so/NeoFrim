@@ -21,7 +21,7 @@ keymap("n", "<leader>zu", "<cmd>Lazy update<CR>", { desc = "Mise à jour des plu
 -- ***********************
 -- * Gestion des projets *
 -- ***********************
-keymap("n", "<leader>f", "<cmd>lua require('config.manage_project').close_project()<CR>", { desc = "Fermer le projet" })
+keymap("n", "<leader>f", "<cmd>lua require ('config.features.project.manage_project').close_project()<CR>", { desc = "Fermer le projet" })
 
 
 -- Ajoutez d'autres raccourcis clavier ici si nécessaire

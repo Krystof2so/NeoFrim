@@ -2,27 +2,28 @@
 **NeoFRim** est une configuration [*Neovim*](https://neovim.io/) basée sur le langage [lua](https://www.lua.org/), visant à fournir une configuration avec des fichiers intégralement commentés en français, ainsi qu'une documentation en français.
 
 ## Caractéristiques :
+- Interface intégralement en français
 - Thème (ou *colorscheme*) : [nordic](https://github.com/AlexvZyl/nordic.nvim)
 - Gestion des *plugins* : [lazy.nvim](https://github.com/folke/lazy.nvim)
+- Menu *Alpha*
+- Gestion des projets
+- LSP : Python, html/css, LaTeX
 
 ## Installations préalables :
 - Neovim v0.10
 - Une police [NerdFont](https://www.nerdfonts.com/)
 - [luarocks](https://github.com/luarocks/luarocks)
+- NodeJS
 
 ## Installation :
 
-### Installation classique :
-Cloner ce dépôt dans `~/.config` et lancer *Neovim*. Cela incluera aussi une documentation qui vous permettra par la suite de réaliser votre propre configuration.
-
-### Installer en apprenant :
-Une autre possibilité consiste à installer cette configuration de façon pas-à-pas tout en apprenant comment définir ses propres options, définir ses propres raccourcis claviers, configurer soi-même les *plugins* installés, etc. Un [*pas à pas*](https://github.com/Krystof2so/frenchy_neovim/blob/main/docs/learn_install/pas_a_pas.md) documenté en français vous permettra d'y parvenir, mais vous ne ferez pas l'économie de venir compléter cela par des lectures annexes en langue anglaise (la plupart des liens seront fournis), et également par vos propres recherches, mais vous saurez également où et comment effectuer ces recherches.
-
+Cloner ce dépôt dans `~/.config` et lancer *Neovim*. Cela incluera aussi une documentation au format *markdown*
 
 --- 
 
 ### A réaliser/finaliser :
 
+- Poursuivre la configuration *project* (saisie d'une recherche d'un projet + création projet)
 - Ajouter des options
 - Ajouter des raccourcis clavier
 - cheatsheet
