@@ -8,13 +8,13 @@
 
 local display_msg = require "config.features.display_msg"
 local projects_file = vim.fn.expand("~/.config/nvim/lua/config/features/project/projects.lua")
-local cmd = vim.cmd()
+local cmd = vim.cmd
 
 local M = {}
 
 
 -- ******************************************************************************************************
--- * Fonction 'update_projects_file' :
+-- * Fonction 'update_projects_file' :                                                                  *
 -- * Fonction locale pour ouvrir et écrire dans le fichier 'projects.lua'.                              *
 -- * Cette fonction reçoit la table projects (liste des projets) et met à jour le fichier projects.lua. *
 -- * Centralise toute la logique d'écriture dans le fihcier.                                            *
@@ -27,15 +27,15 @@ local function update_projects_file(projects) -- projects = table qui représent
     return false
   end
 
-	-- Ecriture dans le fihcier :
+	-- Ecriture dans le fichier :
   file_projects:write("-- Liste des projets\n") -- Commentaire d'en-tête
   file_projects:write("local M = {}\n\n") -- Création d'une table vide
   file_projects:write("M.projects = {\n") -- Création d'une table 'projects' vide
 
-  -- Parcourt de la liste des projets :
+  -- Parcourt la liste des projets :
   for _, project in ipairs(projects) do -- ipairs pour parcourir dans l'ordre
-    if project.name and project.path then -- Vérification des champs pour chaque projet
-      file_projects:write(string.format("  { name = '%s', path = '%s' },\n", project.name, project.path)) -- écriture projet
+    if project.name and project.path then -- Vérification des champs pour chaque projet puis éctiture projet
+      file_projects:write(string.format("  { name = '%s', path = '%s' },\n", project.name, project.path))
     else -- gestion erreur (si un des champs est manquant = projet ignoré)
       display_msg.print_message("Projet invalide : nom ou chemin manquant.")
     end
@@ -43,7 +43,7 @@ local function update_projects_file(projects) -- projects = table qui représent
 
 	-- fermeture de la table des projets et du fichier
   file_projects:write("}\n\n") -- pour fermer la table 'projects'
-  file_projects:write("return M\n") -- pour charge le fichier 'projects.lua' en tant que module par depuis d'autres fichiers
+  file_projects:write("return M\n")
   file_projects:close() -- Fermeture et enregistrement
 
   return true  -- Si tout est OK
@@ -84,6 +84,7 @@ function M.open_project()
   local conf = require("telescope.config").values
   local actions = require "telescope.actions"
   local action_state = require "telescope.actions.state"
+	local previewers = require "telescope.previewers"
   local projects = require "config.features.project.projects" -- Liste des projets
 
   pickers.new({}, { -- Interface de sélection du projet
@@ -102,17 +103,22 @@ function M.open_project()
     sorter = conf.generic_sorter({}), -- Tri/classement des projets
     attach_mappings = function(prompt_bufnr) -- Actions attachées à l'interface
       actions.select_default:replace(function() -- Sélection par défaut
-        local selection = action_state.get_selected_entry() -- Récupère l'élément sélectionné
-        local project_path = selection.value.path -- Récupération du chemin du projet
+				local selection = action_state.get_selected_entry() -- Récupère entrée sélectionnée
+				local project_path = selection.value.path -- Récupération du chemin du projet
 
-        -- Vérifie existance du projet :
-        if not vim.fn.isdirectory(project_path) then -- Si chemin existe dans le sstème de fihciers
+				-- Vérification si une sélection a été faite :
+				if not selection then
+					display_msg.print_message("Aucun projet de sélectionné")
+					vim.api.nvim_command('stopinsert')
+					return
+				end
+
+        -- Vérifie existance du projet au chemin indiqué :
+        if not vim.fn.isdirectory(project_path) then -- Si chemin n'existe pas dans le système de fichiers
           -- Supprime le projet si le répertoire n'existe pas :
           if remove_invalid_project(projects.projects, project_path) then
             update_projects_file(projects.projects)
-            display_msg.print_message("Projet inexistant et supprimé de la liste.")
-          else
-            display_msg.print_message("Erreur : impossible de trouver le projet.")
+            display_msg.print_message("Projet inexistant. Cette entrée est donc supprimée de la liste.")
           end
           actions.close(prompt_bufnr) -- Fermeture Telescope
           return
@@ -125,15 +131,44 @@ function M.open_project()
       end)
       return true
     end,
-  }):find() -- Affichage du picker
+
+		-- Affichage de l'aperçu : 
+		previewer = previewers.new_termopen_previewer {
+			get_command = function(entry)  -- Récupération du fichier README.md avec get_command
+        local readme_path = entry.value.path .. "/README.md"
+				-- Vérifie si le README.md est lisible
+        if vim.fn.filereadable(readme_path) == 1 then
+						return { "batcat", readme_path } -- avec le lecteur 'cat' (A installer sur son système)
+				else
+          return { "echo", "Pas d'aperçu possible pour ce projet.\nUn fichier README.md est nécessaire." }
+        end
+      end,
+    },
+  }):find()
 end
 
 
-function M.close_project() -- Pour la fermeture d'un projet
-	cmd("wall") -- Sauvegarder tous les fichiers modifiés
-  cmd("qall!") -- Quitter Neovim en forçant la fermeture de tous les buffers
+-- ********************************************************************************
+-- * Fonction 'close_project'                                                     *
+-- * Permet de quitter le projet, d'enregistrer tous les fichiers ouverts,        *
+-- * de revenir au répertoire personnel '~/'.                                     *
+-- * Affiche le menu Alpha après avoir quitté le projet.                          *
+-- ********************************************************************************
+function M.close_project()
+  -- Vérifie si l'utilisateur souhaite vraiment quitter le projet :
+  local user_confirm = vim.fn.confirm("Voulez-vous vraiment quitter le projet?", "&Oui\n&Non", 2)
+
+  if user_confirm == 1 then -- Si l'utilisateur a confirmé
+    cmd("wall") -- Enregistre tous les fichiers modifiés
+    cmd("cd ~") -- Change le répertoire courant vers le répertoire personnel
+		cmd("bufdo bd!") -- Ferme tous les buffers ouverts sans quitter Neovim
+    require("alpha").start() -- Ouvre le menu Alpha
+		cmd("NvimTreeClose") -- Ferme NvimTree si ouvert
+    display_msg.print_message("Enregistrement des fichiers modifiés et fermeture du projet...... OK")
+  end
 end
 
+-----------------------------------------------------------------------------------------------------------------------
 
 function M.new_project()
   -- Demande à l'utilisateur le nom du projet
@@ -201,8 +236,8 @@ function M.new_project()
   vim.cmd("NvimTreeOpen")
 
   -- Ajout du projet dans projects.lua
-  local projects_file = "~/.config/nvim/lua/config/features/project/projects.lua"
-  local file_projects = io.open(vim.fn.expand(projects_file), "r")
+  local projects_file_path = "~/.config/nvim/lua/config/features/project/projects.lua"
+  local file_projects = io.open(vim.fn.expand(projects_file_path), "r")
   if not file_projects then
     display_msg.print_message("Erreur lors de l'ouverture de projects.lua")
     return

@@ -14,6 +14,7 @@
 - Une police [NerdFont](https://www.nerdfonts.com/)
 - [luarocks](https://github.com/luarocks/luarocks)
 - NodeJS
+- cat 
 
 ## Installation :
 
