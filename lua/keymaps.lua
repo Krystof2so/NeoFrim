@@ -11,6 +11,13 @@ local function keymap(mode, sequence, command, options)
 end
 
 
+-- ***************
+-- * bufferline **
+-- ***************
+keymap('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+
+
 -- *************
 -- * Lazy.nvim *
 -- *************

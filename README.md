@@ -1,12 +1,12 @@
 # NeoFRim
-**NeoFRim** est une configuration [*Neovim*](https://neovim.io/) basée sur le langage [lua](https://www.lua.org/), visant à fournir une configuration avec des fichiers intégralement commentés en français, ainsi qu'une documentation en français.
+**NeoFRim** est une configuration [*Neovim*](https://neovim.io/) basée sur le langage [lua](https://www.lua.org/), visant à fournir une configuration avec des fichiers intégralement commentés en français, une documentation en français, ainsi que des astuces pour franciser divers *plugins*.
 
 ## Caractéristiques :
 - Interface intégralement en français
 - Thème (ou *colorscheme*) : [nordic](https://github.com/AlexvZyl/nordic.nvim)
 - Gestion des *plugins* : [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Menu *Alpha*
-- Gestion des projets
+- Gestion des projets (améliorée pour les projets *Python*)
 - LSP : Python, html/css, LaTeX
 
 ## Installations préalables :

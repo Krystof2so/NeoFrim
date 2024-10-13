@@ -1,4 +1,4 @@
--- **********************************
+
 -- * Configuration de nvim-tree.lua *
 -- *                                *
 -- * Emplacement :                  *
@@ -45,7 +45,6 @@ tree.setup({
 			},
 		},
 	},
-
 })
 
 -- Raccourci clavier pour ouvrir nvim-tree

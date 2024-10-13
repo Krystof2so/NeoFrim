@@ -82,3 +82,30 @@ Autres options :
 Section qui contrôle la manière dont les éléments de l'explorateur de fichiers sont rendus et affichés. Il permet de personnaliser l'apparence des fichiers, des dossiers, et des icônes, ainsi que de configurer des fonctionnalités spécifiques comme la mise en surbrillance des fichiers en fonction de leur état **Git**.
 Les options :
 - **group_empty** : les répertoire vides seront regroupés ensemble, si défini à **true**.
+
+## Franciser les messages de *nvim-tree* :
+
+### Message de confirmation de suppression :
+Se rendre dans `~/.local/share/nvim/lua/nvim-tree/actions/fs/remove-file.lua`. Modifier les lignes 127 à 137 ainsi :
+```lua
+local prompt_select = "Confirmer la suppression de " .. node.name .. "......"
+local prompt_input, items_short, items_long
+
+if M.config.ui.confirm.default_yes then
+  prompt_input = prompt_select .. " O/n: "
+  items_short = { "", "n" }
+  items_long = { "Oui", "Non" }
+else
+  prompt_input = prompt_select .. " o/N: "
+  items_short = { "", "o" }
+  items_long = { "Non", "Oui" }
+```
+
+## Utilisation :
+- Navigation dans l'arborescence de haut en bas, avec les touches **j** et **k**.
+- Créer un nouveau fichier ou répertoire : se placer sur un répertoire puis touche **a**. Saisir `nom_fichier.extension_fichier` pour créer un nouveau fichier (exemple : `README.md`). Saisir `nom_répertoire/` pour créer un nouveau répertoire (exemple : `config/`).
+- Modifier le nom d'un fichier ou d'un répertoire : se placer sur l'élément à modifier puis touche **r**, modifier ensuite le nom.
+- Naviguer entre l'arborescence de **nvim-tree** et le répertoire ouvert : `<ctrl + w> + w`.
+- Supprimier un fichier ou un répertoire : se placer sur l'élément à modifier pui touche **d**. Une confirmation sera sollicitée.
+
+
