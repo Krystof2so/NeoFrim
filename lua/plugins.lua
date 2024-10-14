@@ -57,8 +57,8 @@ return {
 		end,
 	},
   {
-		'akinsho/bufferline.nvim', 
-		version = "*", 
+		'akinsho/bufferline.nvim',
+		version = "*",
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require(config_plug .. "bufferline")
@@ -69,6 +69,7 @@ return {
 -- *******************
 -- * FONCTIONNALITES *
 -- * autopairs       *
+-- * project-manager *
 -- * Telescope       *
 -- *******************
 
@@ -78,6 +79,17 @@ return {
 		config = function()
 			require(config_plug .. "autopairs")
 	  end,
+	},
+
+	{ -- project-manager : gestionnaire de projets
+    'Krystof2so/nvim-project-manager',
+    dependencies = {
+			'nvim-tree/nvim-tree.lua',
+			'nvim-telescope/telescope.nvim',
+		},
+		config = function()
+			require(config_plug .. "project_manager")
+		end,
 	},
 
 	{

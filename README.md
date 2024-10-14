@@ -31,6 +31,11 @@ Cloner ce dépôt dans `~/.config` et lancer *Neovim*. Cela incluera aussi une d
 
 ### Plugins à explorer/installer :
 
+- [noice](https://github.com/folke/noice.nvim) : Plugin très expérimental qui remplace complètement l'interface utilisateur pour les messages, la ligne de commande et le menu contextuel. 
+- Interpréteur Python
+
+---
+
 - Interface :
     - **OK** - nordic  ==> Configurations
     - **OK** - nvim-tree ==> Documentation
