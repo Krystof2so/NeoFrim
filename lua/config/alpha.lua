@@ -52,8 +52,8 @@ end
 
 -- Boutons de l'interface :
 add_button("1", "📂", "Explorateur de fichiers", "<cmd>NvimTreeOpen<CR>")
-add_button("2", "📁", "Sélectionner un projet", "<cmd>lua require('config.features.project.manage_project').open_project()<CR>")
-add_button("3", "📁", "Créer un projet", "<cmd>lua require('config.features.project.manage_project').new_project()<CR>")
+add_button("2", "📁", "Sélectionner un projet", "<cmd>OpenProject<CR>")
+add_button("3", "📁", "Créer un projet", "<cmd>CreateProject<CR>")
 add_button("4", "🗃️", "Fichiers récemments ouverts", '<cmd>Telescope oldfiles<CR>')
 add_button("5", "📜", "Rechercher fichier", "<cmd>Telescope find_files <CR>")
 add_button("6", "💤", "Ouvrir Lazy", "<cmd>Lazy<CR>")
