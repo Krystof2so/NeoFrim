@@ -25,11 +25,12 @@ keymap("n", "<leader>zz", "<cmd>Lazy<CR>", { desc = "Ouvrir Lazy" })
 keymap("n", "<leader>zs", "<cmd>Lazy sync<CR>", { desc = "Synchronisation Lazy" })
 keymap("n", "<leader>zu", "<cmd>Lazy update<CR>", { desc = "Mise à jour des plugins" })
 
--- ***********************
--- * Gestion des projets *
--- ***********************
-keymap("n", "<leader>f", "<cmd>lua require ('config.features.project.manage_project').close_project()<CR>", { desc = "Fermer le projet" })
 
+-- *******************
+-- * project-manager *
+-- *******************
+keymap("n", "<leader>cp", "<cmd>CreateProject<CR>", { desc = "Créer un projet" })  -- Pour créer un projet
+keymap("n", "<leader>op", "<cmd>OpenProject<CR>", { desc = "Ouvrir un projet" })
 
 -- Ajoutez d'autres raccourcis clavier ici si nécessaire
 

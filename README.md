@@ -15,6 +15,8 @@
 - [luarocks](https://github.com/luarocks/luarocks)
 - NodeJS
 - cat 
+- tree-sitter-cli
+- fd-find
 
 ## Installation :
 
